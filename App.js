@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { View, FlatList, StyleSheet, Text } from "react-native";
 import { useState, useEffect } from "react";
-import { TouchableWithoutFeedback } from "react-native-web";
 import * as Battery from "expo-battery";
-// import Workout from "./component/Workout";
+import Workout from "./component/Workout";
+import { getWorkoutById, getWorkouts } from "./api/WorkoutService";
 
 export default function App() {
   const [workouts, setWorkouts] = useState([]);
@@ -11,16 +11,11 @@ export default function App() {
   const [batteryLevel, setBatteryLevel] = useState(null);
 
   useEffect(() => {
-    //https://us-central1-workouts-app-363616.cloudfunctions.net/GetWorkout?record=76
-    fetch(
-      "https://us-central1-workouts-app-363616.cloudfunctions.net/go_gcp_cfunc_mongo_workouts"
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setWorkouts(res);
-        setWorkLoaded(true);
-        getBatteryLevel();
-      });
+    getWorkouts().then((workouts) => {
+      setWorkouts(workouts);
+      setWorkLoaded(true);
+      getBatteryLevel();
+    });
   }, []);
 
   async function getBatteryLevel(params) {
@@ -28,22 +23,16 @@ export default function App() {
     setBatteryLevel(batteryLevel);
     const subscription = Battery.addBatteryLevelListener(({ batteryLevel }) => {
       setBatteryLevel(batteryLevel);
-      console.log("batteryLevel changed!", batteryLevel);
+      console.log("batteryLevel level changed", batteryLevel);
     });
   }
 
-  const Workout = ({ workout }) => (
-    <View style={styles.item}>
-      <Text>{workout.day}</Text>
-      <Text>{workout.workout_type}</Text>
-    </View>
-  );
-
-  const renderItem = ({ item }) => <Workout workout={item} />;
+  const renderItem = ({ item }) => <Workout workout={item} style={styles} />;
 
   return (
     <View style={styles.container}>
       <Text style={styles.mainTitle}>Workouts</Text>
+
       {batteryLevel && <Text>Current Battery Level: {batteryLevel}</Text>}
       <FlatList
         data={workouts}
@@ -77,12 +66,5 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 15,
-  },
-  item: {
-    color: "#e8e3d5",
-    backgroundColor: "#e5cece",
-    padding: 4,
-    margin: 3,
-    width: 150,
   },
 });
