@@ -1,5 +1,7 @@
 {
   "expo": {
+    "id": "a42d75fb-a3b3-418c-a6cc-2110bc2ce49c",
+    "owner": "andmal",
     "name": "workout-sless-mongo-expo",
     "slug": "workout-sless-mongo-expo",
     "version": "1.0.0",
@@ -22,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.andmal.workoutslessmongoexpo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a42d75fb-a3b3-418c-a6cc-2110bc2ce49c"
+      }
     }
   }
 }
