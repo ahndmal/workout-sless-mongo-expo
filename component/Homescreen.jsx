@@ -21,10 +21,9 @@ function Homescreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.mainTitle}>Workouts</Text>
-      {/* {batteryLevel && <Text>Current Battery Level: {batteryLevel}</Text>} */}
       <Button
         title="Workouts"
-        onPress={() => navigation.navigate("Workouts")}
+        onPress={() => navigation.navigate("WorkoutsPage")}
       />
       <View styles={{ margin: 3 }}>
         <Button

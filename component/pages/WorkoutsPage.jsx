@@ -1,14 +1,16 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text, Button } from "react-native";
 import { useState, useEffect } from "react";
-import Workout from "../Workout";
+import WorkoutComponent from "../WorkoutComponent";
 import { getWorkoutById, getWorkouts } from "../../api/WorkoutService";
 
-const Workouts = () => {
+const WorkoutsPage = ({ navigation }) => {
   const [workouts, setWorkouts] = useState([]);
   const [workLoaded, setWorkLoaded] = useState(false);
 
-  const renderItem = ({ item }) => <Workout workout={item} style={styles} />;
+  const renderItem = ({ item }) => (
+    <WorkoutComponent workout={item} navigation={navigation} style={styles} />
+  );
 
   useEffect(() => {
     getWorkouts().then((res) => {
@@ -28,7 +30,7 @@ const Workouts = () => {
   );
 };
 
-export default Workouts;
+export default WorkoutsPage;
 
 const styles = StyleSheet.create({
   //<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&display=swap');</style>

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text, Button } from "react-native";
 import { useState, useEffect } from "react";
-import Workout from "./Workout";
+import Workout from "./WorkoutComponent";
 import { getWorkoutById, getWorkouts } from "../api/WorkoutService";
 
 const WorkoutsMonth = () => {

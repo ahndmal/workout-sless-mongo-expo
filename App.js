@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Homescreen from "./component/Homescreen";
-import Workouts from "./component/pages/WorkoutsPage";
+import WorkoutsPage from "./component/pages/WorkoutsPage";
 import WorkoutsMonth from "./component/WorkoutsMonth";
 import WorkoutsByType from "./component/WorkoutsByType";
 import WorkoutPage from "./component/pages/WorkoutPage";
@@ -16,7 +16,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Homescreen} />
-        <Stack.Screen name="Workouts" component={Workouts} />
+        <Stack.Screen name="WorkoutsPage" component={WorkoutsPage} />
         <Stack.Screen name="WorkoutsMonth" component={WorkoutsMonth} />
         <Stack.Screen name="WorkoutsByType" component={WorkoutsByType} />
         <Stack.Screen name="WorkoutPage" component={WorkoutPage} />
