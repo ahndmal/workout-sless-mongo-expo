@@ -37,8 +37,8 @@ const Workout = ({ workout }) => {
         }}
         style={{ width: 92, height: 20 }}
       />
-      <Text>Day: {workout.day}</Text>
-      <Text>Date: {workout.workout_date}</Text>
+      <Text style={styles.workout}>Day: {workout.day}</Text>
+      <Text style={styles.workout}>Date: {workout.workout_date}</Text>
     </View>
   );
 };
@@ -69,5 +69,8 @@ const styles = StyleSheet.create({
     padding: 4,
     margin: 3,
     width: 150,
+  },
+  workout: {
+    fontSize: 18,
   },
 });
