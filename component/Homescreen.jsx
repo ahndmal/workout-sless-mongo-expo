@@ -36,9 +36,17 @@ function Homescreen({ navigation }) {
       <View styles={{ margin: 3 }}>
         <Button
           style={{ margin: 3 }}
-          color="#00cc66"
+          color="brown"
           title="Workouts by type"
           onPress={() => navigation.navigate("WorkoutsByType")}
+        />
+      </View>
+      <View styles={{ margin: 3 }}>
+        <Button
+          style={{ margin: 3 }}
+          color="green"
+          title="Create"
+          onPress={() => navigation.navigate("CreateWorkout")}
         />
       </View>
     </View>

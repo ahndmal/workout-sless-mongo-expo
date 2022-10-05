@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { getWorkoutById } from "../../api/WorkoutService";
+import { View, Text, StyleSheet, Button, Image } from "react-native";
+// import { getWorkoutById } from "../../api/WorkoutService";
 
 const WorkoutPage = ({ route }) => {
   const [workoutLoaded, setWorkoutLoaded] = useState(false);
@@ -53,13 +53,25 @@ const WorkoutPage = ({ route }) => {
     <View style={styles.container}>
       {workoutLoaded && (
         <>
-          <Button
-            style={{ margin: 3 }}
-            title={workoutTitle}
-            color={getColorByType(route.params.workout.workout_type)}
+          <Image
+            source={"images/colors/back_new.png"}
+            // source={{
+            //   uri: url,
+            // }}
+            style={{ width: 100, height: 100 }}
+            // onPress={() => navigation.navigate("WorkoutPage")}
           />
-          <Text>{route.params.workout.day}</Text>
-          <Text>{route.params.workout.workout_type}</Text>
+          <View>
+            <Button
+              style={{ margin: 5, width: 200 }}
+              title={workoutTitle}
+              color={getColorByType(route.params.workout.workout_type)}
+            />
+          </View>
+          <Text style={styles.title}>{route.params.workout.day}</Text>
+          <Text style={styles.title}>
+            Date: {route.params.workout.workout_date}
+          </Text>
         </>
       )}
     </View>

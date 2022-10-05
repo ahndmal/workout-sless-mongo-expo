@@ -8,6 +8,7 @@ import WorkoutsPage from "./component/pages/WorkoutsPage";
 import WorkoutsMonth from "./component/WorkoutsMonth";
 import WorkoutsByType from "./component/WorkoutsByType";
 import WorkoutPage from "./component/pages/WorkoutPage";
+import CreateWorkout from "./component/CreateWorkout";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="WorkoutsMonth" component={WorkoutsMonth} />
         <Stack.Screen name="WorkoutsByType" component={WorkoutsByType} />
         <Stack.Screen name="WorkoutPage" component={WorkoutPage} />
+        <Stack.Screen name="CreateWorkout" component={CreateWorkout} />
       </Stack.Navigator>
     </NavigationContainer>
   );

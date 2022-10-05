@@ -22,4 +22,21 @@ const getWorkouts = async (wType, wDate, month, year) => {
   return await resp.json();
 };
 
-export { getWorkoutById, getWorkouts };
+async function createWorkout(data) {
+  let dataBody = JSON.stringify(data);
+  console.log(dataBody);
+  const response = await fetch(
+    "https://create-workout-mongo-python-lysuchhuma-uc.a.run.app/",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-cache",
+      body: dataBody,
+    }
+  );
+  return response.text();
+}
+
+export { getWorkoutById, getWorkouts, createWorkout };

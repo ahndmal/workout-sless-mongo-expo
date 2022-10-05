@@ -24,7 +24,7 @@ const WorkoutsPage = ({ navigation }) => {
       <FlatList
         data={workouts}
         renderItem={renderItem}
-        keyExtractor={(item) => item.record}
+        keyExtractor={(item, index) => index}
       />
     </View>
   );
