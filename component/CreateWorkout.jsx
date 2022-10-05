@@ -15,19 +15,16 @@ const CreateWorkout = ({ navigation }) => {
       comments: comments,
       workout_date: date,
       workout_type: type,
-      // creation_date: today,
       // day: Info.weekdays("long")[today.day],
-      // day: "Wednesday",
-      // week: 2,
+      // day: "Wednesday",        // todo -> take day from 'workout_date'
       user_id: 1,
       // month: Info.months("long")[today.month],
-      // month: "October",
     })
       .then((res) => {
         console.log(res);
       })
       .catch((err) => console.error(err));
-    // navigation.navigate("WorkoutsPage");
+    navigation.navigate("WorkoutsPage");
   };
 
   return (
