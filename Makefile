@@ -4,12 +4,10 @@ configure:
 run-local:
 	eas build --profile development --platform android
 build:
-	eas build -p android	
+	eas build --profile preview --platform android	
 build-local:
 	eas build --profile preview --platform all	
 run-local-studio:
 	npx expo run:android
-
-#To build and run on a connected device:
-#npx expo run:android -d
+	eas build:run -p android
 
